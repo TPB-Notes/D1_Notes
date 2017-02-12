@@ -1,1 +1,266 @@
-# D1_Notes
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision 1 Notes</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<script>alert("Will this work");</alert>
+</head>
+<body><div class="container"><h1 id="decision-1">Decision 1</h1>
+
+<h2 id="sorting">Sorting</h2>
+
+<h3 id="bubble-sort">Bubble Sort</h3>
+
+<ol>
+<li>Compare the first two numbers. If the smaller number is on the right, swap the two numbers</li>
+<li>Move one step forwards in the list and compare two numbers. repeat step 1 until the two numbers on the right have been compared. This completes the pass</li>
+<li>If there were swaps, return to step 1 but ignore the last value in the list. If there weren’t any swaps the sorting is complete</li>
+</ol>
+
+<h3 id="shuttle-sort">Shuttle Sort</h3>
+
+<ol>
+<li>Compare the first two numbers, swap if necessary</li>
+<li>Compare the second and third numbers, swap if necessary. If the numbers are swapped, move back one step and compare those two values. Otherwise move forwards. Each forward movement begins a new pass.</li>
+<li>The final pass is the pass which starts by comparing the last two numbers.</li>
+</ol>
+
+<p>For both Bubble and Shuttle sort, a list of <script type="math/tex" id="MathJax-Element-6739">n</script> numbers will definitely be sorted after the <script type="math/tex" id="MathJax-Element-6740">(n-1)^{th}</script> pass. <br>
+The maximum number of comparisons and swaps is <script type="math/tex" id="MathJax-Element-6741">\frac{n(n-1)}{2}</script>. <br>
+Shuttle can be more efficient than bubble as each pass stops when no more swaps are needed.</p>
+
+
+
+<h3 id="shell-sort">Shell Sort</h3>
+
+<p>Shell sort splits the list into groups, sorting the groups and then merging them again. </p>
+
+<ol>
+<li>Divide the list of <script type="math/tex" id="MathJax-Element-6943">n</script> values into <script type="math/tex" id="MathJax-Element-6944">m</script> subgroups where <script type="math/tex" id="MathJax-Element-6945">m=\lfloor\frac n 2\rfloor</script> </li>
+<li>Shuttle sort each subgroup, keeping a record of comparisons and swaps. Merge the groups into 1 list again</li>
+<li>Let <script type="math/tex" id="MathJax-Element-6946">m = \lfloor \frac m 2 \rfloor</script>and divide the list into this many groups and repeat step 2 until <script type="math/tex" id="MathJax-Element-6947">m=1</script></li>
+</ol>
+
+<h3 id="quick-sort">Quick Sort</h3>
+
+<ol>
+<li>Underline the first value in the list, the pivot, and rewrite the list so that any values smaller than this are to the left</li>
+<li>Draw a box around the pivot, splitting the list into two sections. For each section repeat step 1 until none of the sublists have more than 2 numbers</li>
+</ol>
+
+<h2 id="algorithms">Algorithms</h2>
+
+<p>In order to trace an algorithm you must show how the variables change value as the program is run.</p>
+
+<ul>
+<li>Write the variables as the column headings, in the order in which they are introduced</li>
+<li>If the print command is used, write the word print and the values to be printed</li>
+</ul>
+
+<p>When adding commands to the algorithm, ensure that you give a line number.</p>
+
+<h2 id="graphs">Graphs</h2>
+
+<p><strong>Node</strong> A point often used to represent a place <br>
+<strong>Arc/Edge</strong> Lines joining nodes which may represent roads, pipes, or other connections <br>
+<strong>Loop</strong> An arc whose beginning and end are the same vertex <br>
+<strong>Degree/Order</strong> The number of edges at a node <br>
+<strong>Digraph</strong> A graph in which one more of the edges is directional</p>
+
+<p><strong>Simple graph</strong> A graph in which there are no loops and in which there is no more than one edge connecting any pair of vertices</p>
+
+<p><strong>Connected graph</strong> A graph in which it is possible to get from any node to any other</p>
+
+<p><strong>Complete graph <script type="math/tex" id="MathJax-Element-7529">K_n</script></strong> A graph where there is a direct route between any 2 nodes</p>
+
+<p>A complete graph with <script type="math/tex" id="MathJax-Element-7530">n</script> nodes has <script type="math/tex" id="MathJax-Element-7531">K_n = \frac{n(n-1)}{2} </script> edges</p>
+
+<p><strong>Planar graph</strong> A graph in which no edges cross</p>
+
+<p><strong>Bipartite graph</strong> A graph in which the vertices fall into two sets and in which each edge has a vertex from one set to the other</p>
+
+<p><strong>Walk</strong> A sequence of edges in which the end of each edge is the beginning of the next (other than the last)</p>
+
+<p><strong>Trail</strong> A walk in which no edge is repeated</p>
+
+<p><strong>Cycle</strong> A closed path in which no vertices are repeated</p>
+
+<p><strong>Tree</strong> A simple connected graph with no cycles</p>
+
+<p><strong>Hamilton cycle</strong> A cycle which visits every vertex once and only once, other than the start/end vertex, and does not use any edges more than once</p>
+
+<p>A graph with <script type="math/tex" id="MathJax-Element-7532">n</script> nodes can have <script type="math/tex" id="MathJax-Element-7533">\frac{(n-1)!}{2}</script> Hamilton cycles</p>
+
+<p><strong>Eulerian graph</strong> A graph which is traversable, meaning that it could be drawn without lifting a pen. The degree of all of the nodes must be even</p>
+
+<p>The complete graph <script type="math/tex" id="MathJax-Element-7534">K_n</script> is Eulerian if <script type="math/tex" id="MathJax-Element-7535">n</script> is odd</p>
+
+
+
+<h2 id="minimum-spanning-trees">Minimum spanning trees</h2>
+
+<p><strong>Minimum spanning tree</strong> A subset of the edges of a connected, edge-weighted, undirected graph that connects all the vertices together without any cycles, and with the minimum possible total weight</p>
+
+<p>For a graph with <script type="math/tex" id="MathJax-Element-7564">n</script> nodes the minimum spanning tree will have <script type="math/tex" id="MathJax-Element-7565">n-1</script> edges</p>
+
+
+
+<h3 id="kruskals">Kruskals</h3>
+
+<ol>
+<li>List the edges in ascending order of weight</li>
+<li>Choose the smallest edge</li>
+<li>Choose the next smallest edge which will not create a loop</li>
+<li>Repeat step 3 until all nodes are connected</li>
+</ol>
+
+<p>Kruskals is difficult to complete from a matrix, and as it is a greedy algorithm it takes the most obvious choice without any forethought.</p>
+
+<h3 id="prims">Prims</h3>
+
+
+
+<h4 id="from-a-graph">From a graph</h4>
+
+<ol>
+<li>Choose the smallest edge</li>
+<li>Find the smallest edge that is already joined to a chosen edge which does not form a loop</li>
+<li>Repeat step 3 until all nodes are connected</li>
+</ol>
+
+
+
+<h4 id="from-a-matrix">From a matrix</h4>
+
+<ol>
+<li>Choose a starting node and delete all elements in its respect row. Highlight its column</li>
+<li>Ignoring all deleted elements, find and circle the lowest available element across the entire matrix</li>
+<li>Delete the circled elements row and highlight its column</li>
+<li>Repeat steps 2 and 3 until all rows are deleted</li>
+<li>The spanning tree is then formed by the circled arcs</li>
+</ol>
+
+
+
+<h2 id="shortest-path-between-two-points">Shortest path between two points</h2>
+
+
+
+<h4 id="dijsktras">Dijsktras</h4>
+
+<ol>
+<li>Label the starting point 0 and draw a box around it</li>
+<li>Look at the vertices connected the boxed node and label all of them with the distance from the start</li>
+<li>Choose the smallest label and box it, before repeating step 2 with the nodes connected to any of the boxed noes</li>
+<li>Continue until all the nodes are boxed, not just when the destination has been reached</li>
+</ol>
+
+<p>Workings</p>
+
+<ul>
+<li>Cross out each distance as each nodes is re-labelled</li>
+<li>Work backwards from the end node, looking at the differences between boxed values to find the solution</li>
+<li>Clearly state the chosen route and its length</li>
+</ul>
+
+<p>Dijsktras doesn’t work if any of the weights are negative</p>
+
+
+
+<h2 id="chinese-postman-route-inspection">Chinese Postman (Route inspection)</h2>
+
+<p>The route must travel along each edge at least once before returning to the start node in the minimum distance.</p>
+
+<p>If the nodes are not all even then the graph is not traversable and a route inspection cannot be completed.</p>
+
+<ol>
+<li>List all of the odd nodes in the network</li>
+<li>List the different pairings for the odd nodes</li>
+<li>Find the shortest distance between each of the pairs</li>
+<li>Choose the pairing which gives the smallest total</li>
+<li>Add together all of the weights in the network plus the additional networks found</li>
+<li>State the total weight and a route around the network which includes the extra edges added</li>
+</ol>
+
+<p>For <script type="math/tex" id="MathJax-Element-7587">n</script> nodes there are <script type="math/tex" id="MathJax-Element-7588">(n-1)\times(n-3)\times(n-5)\times ... \times 3 \times 1</script> pairings</p>
+
+<h2 id="travelling-salesman-upper-and-lower-bounds">Travelling Salesman upper and lower bounds</h2>
+
+
+
+<h3 id="lower-bound">Lower bound</h3>
+
+<ol>
+<li>Delete one of the vertices (Usually given)</li>
+<li>Find a minimum spanning tree for the remaining vertices</li>
+<li>Add to the spanning tree the weights of the two smallest edges to the deleted vertex</li>
+</ol>
+
+<p>This process may need to be repeated with different deleted vertices. The highest value is the best lower bound</p>
+
+<p>There are likely to be single nodes in the lower bound solution and it is therefore unlikely to be the optimal solution as a complete tour would not be possible with those edges.</p>
+
+<h3 id="upper-bound-nearest-neighbour-algorithm">Upper bound (Nearest neighbour algorithm)</h3>
+
+<ol>
+<li>Choose a starting node</li>
+<li>Join this node to the nearest node</li>
+<li>Continue to join the new node to the next nearest node which hasn’t been used. Once all nodes have been included, join the last node back to the starting node</li>
+</ol>
+
+<p>The upper bound is often a tour which can be improved upon, because Nearest neighbour is a heuristic algorithm.</p>
+
+<p>The algorithm may need to be repeated for all vertices. The smallest answer is the best upper bound.</p>
+
+<p>The optimal solution has been found if the upper bound is equal to the lower bound.</p>
+
+<h2 id="matchings">Matchings</h2>
+
+<p><strong>Complete matching</strong> A matching in which every vertex in one group is connected to one in the second group <br>
+<strong>Maximal matching</strong> A matching which uses the greatest number of edges. A complete matching is always maximal</p>
+
+<p>To improve a matching</p>
+
+<ol>
+<li>Start with the initial matching</li>
+<li>Start with an unmatched node in the left hand side (LHS)</li>
+<li>Move to the right hand side (RHS) along an edge not in the initial matching</li>
+<li>Move back to the LHS along an edge which is in the initial matching</li>
+<li>Continue until you have reach an unmatched edge in the RHS</li>
+</ol>
+
+
+
+<h2 id="linear-programming">Linear programming</h2>
+
+<h3 id="inequalities">Inequalities</h3>
+
+<ul>
+<li>Identify the variables to be used in the inequalities</li>
+<li>State the objective function which is to be maximised or minimised</li>
+<li>State the lower bound inequalities</li>
+<li>Use consistent units</li>
+</ul>
+
+<h3 id="graph">Graph</h3>
+
+<ul>
+<li>Label the axis</li>
+<li>Label the lines as you plot them</li>
+<li>Shade the area which cannot be used</li>
+<li>Plot and label the objective function</li>
+</ul>
+
+<h3 id="finding-the-solution">Finding the solution</h3>
+
+<ul>
+<li>If maximising look for the point the furthest from the origin within the feasible region</li>
+<li>If minimising look for the point the closest to the origin within the feasible region</li>
+<li>Find the vertex to be investigated</li>
+<li>Evaluate the objective function at this point</li>
+<li>Choose the best value</li>
+</ul></div></body>
+</html>
